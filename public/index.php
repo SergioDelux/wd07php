@@ -1,5 +1,59 @@
 <?php
-include __DIR__.'/../src/pages.php';
+//1
+$str = "ПРИВЕТ ДЯДЯ ВАСЯ";
+echo mb_strtolower($str);
+
+//2
+$str1 = 'asdfg asdaaafghj asdssssgh addddddddfgh qqqqqqqqqq wwwwwwwwww eeeeeeeeeee';
+print_r(str_word_count($str1, 0));
+
+//3
+$myvalue = 'qwert asdfg. xcvbn ghjkhjk. wertyu dfghjk.';
+$tokens = explode(" ", $myvalue);
+echo $tokens[0];
+
+//4
+function convertENcharacters($str) {
+    $from = array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я');
+    $to = array('a','b','v','g','d','e','e','zh','z','i','i','k','l','m','n','o','p','r','s','t','u','f','kh','cz','ch','sh','shh','','y','','e','yu','ya','A','B','V','G','D','E','E','ZH','Z','I','I','K','L','M','N','O','P','R','S','T','U','F','KH','CZ','CH','SH','SHH','','Y','','E','YU','YA');
+    return str_replace($to,$from, $str);
+}
+echo convertENcharacters('privet kak dela Sergei');
+
+
+
+//$world =mb_strtolower('Привет мир');
+//echo ($world);
+//echo "\n";
+//
+//$str = "12345ccc";
+//$str  = trim($str);
+//    $message ="asdfghjkl asdfgh";
+//найти имя файла
+//$path = 'c:\\windows\\ololo\\folder\\ololo.jpg';
+//$name = explode('\\',$path);
+//print_r($name);
+//$name= $name[count($name)-1];
+//echo $name;
+
+// посчитать сколько предложений в тексте
+//$path = "sdfghjk.sdfghj.dfghj.asdfgh!";
+//$name = str_replace(["?","!"],".",$path);
+//$name = explode(".",$name);
+//$name = count($name)-1;
+//echo $name;
+
+//найти имя пользователя в емейле
+//$email = "asdfghjkl@sdfghjk";
+//$username = explode("@",$email);
+//echo $username[0];
+
+
+
+
+
+
+/*include __DIR__.'/../src/pages.php';
 echo "<br>";
 echo __DIR__;
 echo "<br>";
@@ -11,7 +65,7 @@ echo __FILE__;
         [1,2,3,4,5,6,7],
         [8,9,10,11],
          [12,15,17,111],
-];*/
+];
   $sum=0;
 for ($i=0; $i<count($arr);$i++){
   //  print_r($arr[$i]);
