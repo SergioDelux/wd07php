@@ -1,24 +1,105 @@
 <?php
-//1
-$str = "ПРИВЕТ ДЯДЯ ВАСЯ";
-echo mb_strtolower($str);
+    include_once __DIR__."/../src/functions.php";
+include_once __DIR__."/../src/db.php";
+    $url = $_SERVER['REQUEST_URI'];
+    //debug($url=='/');
 
-//2
-$str1 = 'asdfg asdaaafghj asdssssgh addddddddfgh qqqqqqqqqq wwwwwwwwww eeeeeeeeeee';
-print_r(str_word_count($str1, 0));
+    if($url == '/'){
+        include_once __DIR__."/../src/pages/blog.php";
+    }
+    if(strpos($url, '/page/')===0){
+        $tmp = explode('/',$url);
+        $pageId = array_pop($tmp);
 
-//3
-$myvalue = 'qwert asdfg. xcvbn ghjkhjk. wertyu dfghjk.';
-$tokens = explode(" ", $myvalue);
-echo $tokens[0];
+            //$tmp[count(($tmp)];
+        include_once __DIR__."/../src/pages/page.php";
+    }
 
-//4
-function convertENcharacters($str) {
-    $from = array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я');
-    $to = array('a','b','v','g','d','e','e','zh','z','i','i','k','l','m','n','o','p','r','s','t','u','f','kh','cz','ch','sh','shh','','y','','e','yu','ya','A','B','V','G','D','E','E','ZH','Z','I','I','K','L','M','N','O','P','R','S','T','U','F','KH','CZ','CH','SH','SHH','','Y','','E','YU','YA');
-    return str_replace($to,$from, $str);
-}
-echo convertENcharacters('privet kak dela Sergei');
+
+
+
+
+//include_once __DIR__."/../src/db.php";
+//    $pages = mysqli_fetch_all($res,MYSQLI_ASSOC);
+//
+//    echo "<pre>";
+//    print_r($pages);
+//    echo "</pre>";
+
+
+
+//    if(isset($_GET['page']) && $_GET['page']== 'form' ) {
+//    include __DIR__ . "/../src/form.php";
+//    }
+//    if(isset($_GET['page']) && $_GET['page']== 'form_result' ) {
+//        include __DIR__ . "/../src/form_result.php";
+//    }
+//        if(isset($_GET['page']) && $_GET['page']== 'page' ){
+//            include __DIR__."/../src/page.php";
+//    }
+
+
+
+
+
+//$result =[];
+//for ($i=0; $i<=15; $i++){
+//    echo $i * $i;
+//    echo " ";
+
+
+
+//$i = 0;
+//while ($i <= 100) {
+//    $i++;
+//   if ($i % 3 == 0) {
+//        continue;
+//   }
+//    if ($i % 2 == 0) {
+//        echo $i;
+//    }
+//  echo " ";
+//
+//}
+//$data = [1, 10, 11, 3, 2 ,5, 17, 22, 20];
+//foreach($data as $key=>$item) {
+//    if ($key % 2 == 0) {
+//       continue;
+//    }
+//    if ($item % 5 == 0) {
+//        continue;
+//    }
+//       echo "$item";
+//    echo " ";
+//}
+
+//var_dump($data);
+
+//$w = array('Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб');
+//$n = 4; //номер нужного дня
+//echo $w[$n];
+//echo $w[date('w')]; //сегодня
+
+////1
+//$str = "ПРИВЕТ ДЯДЯ ВАСЯ";
+//echo mb_strtolower($str);
+//
+////2
+//$str1 = 'asdfg asdaaafghj asdssssgh addddddddfgh qqqqqqqqqq wwwwwwwwww eeeeeeeeeee';
+//print_r(str_word_count($str1, 0));
+//
+////3
+//$myvalue = 'qwert asdfg. xcvbn ghjkhjk. wertyu dfghjk.';
+//$tokens = explode(" ", $myvalue);
+//echo $tokens[0];
+
+////4
+//function convertENcharacters($str) {
+//    $from = array('а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я');
+//    $to = array('a','b','v','g','d','e','e','zh','z','i','i','k','l','m','n','o','p','r','s','t','u','f','kh','cz','ch','sh','shh','','y','','e','yu','ya','A','B','V','G','D','E','E','ZH','Z','I','I','K','L','M','N','O','P','R','S','T','U','F','KH','CZ','CH','SH','SHH','','Y','','E','YU','YA');
+//    return str_replace($to,$from, $str);
+//}
+//echo convertENcharacters('privet kak dela Sergei');
 
 
 
