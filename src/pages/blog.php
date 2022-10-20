@@ -1,5 +1,9 @@
 <?php
-$res = mysqli_query($connection,query: "select * from posts order by id desc limit 15");
+$offset = 0;
+if ( isset($_GET['page'])){
+    $offset = ((int) $_GET['page']-1) * 15;
+}
+$res = mysqli_query($connection,query: "select * from posts order by id desc limit $offset, 15");
 
 $pages = mysqli_fetch_all($res,mode:MYSQLI_ASSOC);
 $res = mysqli_query($connection,'SELECT count(id) as total FROM posts ');
@@ -72,9 +76,9 @@ $pagesCount = ceil($total/15);
                     <h2 class="post-title"><?=$page['title'];?></h2>
                 </a>
                 <p class="post-meta">
-                    Posted by
-                    <a href="#!">Start Bootstrap</a>
-                    on September 24, 2022
+
+                    <a href="/delete_page?post=<?= $page['id'] ?>">DELETE</a>
+
                 </p>
             </div>
             <!-- Divider-->
